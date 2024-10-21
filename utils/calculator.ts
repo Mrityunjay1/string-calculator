@@ -25,24 +25,18 @@ export const add = (numbers: string): number => {
     }
   }
 
-  console.log("Delimiters:", delimiters);
-  console.log("Numbers string:", numbersString);
-
   const escapedDelimiters = delimiters.map((d) =>
     d.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
   );
 
   const splitRegex = new RegExp(escapedDelimiters.join("|"));
-  console.log("Split regex:", splitRegex);
 
   const nums = numbersString.split(splitRegex);
-  console.log("Split numbers:", nums);
 
   const parsedNums = nums.map((num) => {
     const trimmedNum = num.trim();
     return trimmedNum === "" ? 0 : parseInt(trimmedNum, 10);
   });
-  console.log("Parsed numbers:", parsedNums);
 
   const negatives = parsedNums.filter((num) => num < 0);
   if (negatives.length > 0) {
@@ -50,7 +44,6 @@ export const add = (numbers: string): number => {
   }
 
   const sum = parsedNums.reduce((acc, num) => acc + num, 0);
-  console.log("Final sum:", sum);
 
   return sum;
 };

@@ -33,10 +33,6 @@ export default function StringCalculator() {
     }
   };
 
-  const formatInput = (input: string) => {
-    return input.replace(/\n/g, "\\n");
-  };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
@@ -84,11 +80,7 @@ export default function StringCalculator() {
         {result !== null && (
           <Alert className="w-full">
             <AlertTitle>Result</AlertTitle>
-            <AlertDescription>
-              Input: {formatInput(input)}
-              <br />
-              Sum: {result}
-            </AlertDescription>
+            <AlertDescription>Sum: {result}</AlertDescription>
           </Alert>
         )}
         {error && (
