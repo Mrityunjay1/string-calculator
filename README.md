@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# String Calculator - Next.js with TDD
+
+This project is a Next.js implementation of the String Calculator kata, developed using Test-Driven Development (TDD) principles. It provides a simple web interface for adding numbers provided as a string input.
+
+## Features
+
+- Add numbers provided as a string
+- Support for custom delimiters
+- Handling of negative numbers
+- Responsive web interface
+
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- Jest for testing
+- Tailwind CSS for styling
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
+- Node.js (v14 or later)
+- npm (v6 or later)
+
+### Installation
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/your-username/string-calculator-nextjs.git
+   cd string-calculator-nextjs
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+### Running the Application
+
+To start the development server:
+
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Testing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses Jest for unit testing. To run the tests:
 
-## Learn More
+```
+npm test
+```
 
-To learn more about Next.js, take a look at the following resources:
+To run tests in watch mode:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run test:watch
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## TDD Approach
 
-## Deploy on Vercel
+This project was developed using Test-Driven Development. The process followed these steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Write a failing test for a new feature.
+2. Write the minimum amount of code to make the test pass.
+3. Refactor the code while ensuring all tests still pass.
+4. Repeat for each new feature or requirement.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+- `/components`: React components including the StringCalculator
+- `/utils`: Utility functions, including the core `add` function
+
+## Usage Examples
+
+The String Calculator accepts inputs in the following formats:
+
+- `"1,2,3"` (returns 6)
+- `"1\\n2,3"` (returns 6)
+- `"//;\\n1;2;3"` (returns 6, using ';' as a custom delimiter)
+- `"//[*][%]\\n1*2%3"` (returns 6, using '\*' and '%' as custom delimiters)
+
+Negative numbers will throw an exception.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
